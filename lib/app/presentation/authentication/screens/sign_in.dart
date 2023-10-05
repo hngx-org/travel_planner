@@ -107,7 +107,7 @@ class _SignInScreenState extends State<SignInScreen> {
             children: [
               Scaffold(
                 body: Padding(
-                  padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 100.0),
+                  padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
                   child: Center(
                     child: SingleChildScrollView(
                       child: Form(
@@ -270,9 +270,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 40.0,
-                            ),
+                            const SizedBox(height: 40.0),
                             CustomButton(
                               onTap: () async {
                                 if (_formKey.currentState!.validate()) {

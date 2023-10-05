@@ -2,9 +2,11 @@ import 'package:chatview/chatview.dart';
 import 'package:flutter/material.dart';
 import 'package:hngx_openai/repository/openai_repository.dart';
 import 'package:travel_planner/app/presentation/chat/widgets/chat_bubble.dart';
+import 'package:travel_planner/app/presentation/settings/screen/payment_screen.dart';
 import 'package:travel_planner/app/router/base_navigator.dart';
 import 'package:travel_planner/component/constants.dart';
 import 'package:travel_planner/component/overlays/dialogs.dart';
+import 'package:travel_planner/data/model/auth/user.dart';
 import 'package:travel_planner/data/model/base_response.dart';
 import 'package:travel_planner/data/model/conversation.dart';
 import 'package:travel_planner/data/repositories/open_api/open_api_repo.dart';
@@ -35,6 +37,8 @@ class _ChatScreenState extends State<ChatScreen> {
   final openAi = OpenApiRepo.instance;
   OpenAIRepository openAI = OpenAIRepository();
   final storage = AppStorage.instance;
+
+  User? user;
 
   ValueNotifier<bool> sendLoading = ValueNotifier(false);
 
@@ -153,6 +157,7 @@ class _ChatScreenState extends State<ChatScreen> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       await dbCheck();
       initChatController();
+      user = storage.getUserData();
     });
   }
 
@@ -259,6 +264,10 @@ class _ChatScreenState extends State<ChatScreen> {
             if (!mounted) return;
             if (s == true) {
               BaseNavigator.pop();
+              BaseNavigator.pushNamed(
+                PaymentScreen.routeName,
+                args: user?.id ?? "",
+              );
             }
           }
         } else {

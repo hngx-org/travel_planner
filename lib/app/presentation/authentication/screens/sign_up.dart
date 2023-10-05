@@ -129,7 +129,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Scaffold(
                 backgroundColor: Theme.of(context).colorScheme.background,
                 body: Padding(
-                  padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 100.0),
+                  padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
                   child: Center(
                     child: SingleChildScrollView(
                       child: Form(

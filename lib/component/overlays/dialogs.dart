@@ -248,7 +248,6 @@ class AppOverlays {
               overlayColor: const MaterialStatePropertyAll(Colors.transparent),
               onTap: () async {
                 BaseNavigator.pop(true);
-                BaseNavigator.pushNamedAndReplace(PaymentScreen.routeName);
               },
               child: const Text(
                 "Continue",
